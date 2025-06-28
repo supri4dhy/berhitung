@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Lembar Kerja Matematika</title>
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Google Fonts: Inter dan Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f4f8; }
+        h1, h2, button { font-family: 'Poppins', sans-serif; }
+        
+        /* Menyembunyikan radio button asli */
+        .setting-group input[type="radio"] {
+            display: none;
+        }
+
+        /* Styling untuk label yang akan menjadi tombol custom */
+        .setting-group label {
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Style untuk label yang terpilih (checked) */
+        .setting-group input[type="radio"]:checked + label {
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background-color: #fff; }
+            main { width: 100%; margin: 0; padding: 0; border: none; box-shadow: none; }
+            .soal-card { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <main class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+
+        <!-- KONTROL APLIKASI (Tidak akan dicetak) -->
+        <div class="no-print text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Generator Lembar Kerja</h1>
+            <p class="text-gray-600 mt-2">Buat soal Penjumlahan & Pengurangan untuk dicetak.</p>
+            
+            <div class="space-y-6 mt-6 border-t pt-6">
+                <!-- PENGATURAN UTAMA -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="setting-group flex justify-center bg-gray-200 rounded-full p-1">
+                        <input type="radio" name="operasi" value="penjumlahan" id="op-plus" checked>
+                        <label for="op-plus" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">Penjumlahan</label>
+                        <input type="radio" name="operasi" value="pengurangan" id="op-minus">
+                        <label for="op-minus" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">Pengurangan</label>
+                    </div>
+                    <div class="setting-group flex justify-center bg-gray-200 rounded-full p-1">
+                        <input type="radio" name="digit" value="2" id="digit-2" checked>
+                        <label for="digit-2" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">2 Digit</label>
+                        <input type="radio" name="digit" value="3" id="digit-3">
+                        <label for="digit-3" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">3 Digit</label>
+                    </div>
+                    <div class="setting-group flex justify-center bg-gray-200 rounded-full p-1">
+                        <input type="radio" name="tipe" value="mudah" id="tipe-mudah" checked>
+                        <label for="tipe-mudah" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">Mudah</label>
+                        <input type="radio" name="tipe" value="sulit" id="tipe-sulit">
+                        <label for="tipe-sulit" class="w-full text-center cursor-pointer rounded-full py-2 px-4 font-semibold text-gray-700">Sulit</label>
+                    </div>
+                </div>
+
+                <!-- PENGATURAN TATA LETAK -->
+                 <div class="flex justify-center items-center gap-x-6 pt-4">
+                    <span class="text-lg font-semibold text-gray-700">Tata Letak:</span>
+                    <div>
+                        <label for="inputKolom" class="sr-only">Jumlah Kolom</label>
+                        <input type="number" id="inputKolom" value="5" min="1" max="6" class="w-24 text-center border-gray-300 rounded-lg shadow-sm" title="Jumlah Kolom">
+                    </div>
+                    <span class="text-xl text-gray-400">×</span>
+                    <div>
+                         <label for="inputBaris" class="sr-only">Jumlah Baris</label>
+                        <input type="number" id="inputBaris" value="5" min="1" max="10" class="w-24 text-center border-gray-300 rounded-lg shadow-sm" title="Jumlah Baris">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+                <button id="tombolBaru" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform">
+                    Buat Lembar Soal Baru
+                </button>
+                <button id="tombolCetak" onclick="window.print()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform">
+                    🖨️ Cetak / Simpan PDF
+                </button>
+            </div>
+        </div>
+        
+        <!-- Header Lembar Kerja (Akan Dicetak) -->
+        <div class="border-b-2 border-gray-300 pb-4 mb-6">
+            <h2 id="judulSheet" class="text-2xl font-bold text-center"></h2>
+            <div class="flex justify-between mt-4 text-lg">
+                <span>Nama: .................................</span>
+                <span>Tanggal: ..............................</span>
+            </div>
+        </div>
+
+        <!-- CONTAINER UNTUK SOAL-SOAL -->
+        <div id="sheet-container" class="gap-x-8 gap-y-10"></div>
+
+    </main>
+
+    <script>
+        const sheetContainer = document.getElementById('sheet-container');
+        const tombolBaru = document.getElementById('tombolBaru');
+        const judulSheet = document.getElementById('judulSheet');
+        
+        function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+        
+        function buatSoalPenjumlahan(digit, tipe) {
+            const min = 10 ** (digit - 1);
+            const max = (10 ** digit) - 1;
+            let angka1, angka2;
+            if (tipe === 'mudah') { 
+                angka1 = getRandomInt(min, max - min);
+                angka2 = 0;
+                let tempAngka1 = angka1;
+                for (let i = 0; i < digit; i++) {
+                    const digit1 = tempAngka1 % 10;
+                    const digit2 = getRandomInt(0, 9 - digit1);
+                    angka2 += digit2 * (10 ** i);
+                    tempAngka1 = Math.floor(tempAngka1 / 10);
+                }
+            } else { 
+                do {
+                    angka1 = getRandomInt(min, max - min);
+                    angka2 = getRandomInt(min, max - angka1);
+                } while (!cekAdaSimpanan(angka1, angka2));
+            }
+            return { angka1, angka2 };
+        }
+
+        function buatSoalPengurangan(digit, tipe) {
+            const min = 10 ** (digit - 1);
+            const max = (10 ** digit) - 1;
+            let angka1, angka2;
+            if (tipe === 'mudah') { 
+                do {
+                    angka1 = getRandomInt(min + 1, max);
+                    angka2 = getRandomInt(min, angka1 - 1);
+                } while (cekAdaPinjaman(angka1, angka2));
+            } else { 
+                do {
+                    angka1 = getRandomInt(min + 1, max);
+                    angka2 = getRandomInt(min, angka1 - 1);
+                } while (!cekAdaPinjaman(angka1, angka2));
+            }
+            return { angka1, angka2 };
+        }
+
+        function cekAdaSimpanan(n1, n2) {
+            let carry = 0;
+            while (n1 > 0 || n2 > 0) {
+                const digit1 = n1 % 10;
+                const digit2 = n2 % 10;
+                if (digit1 + digit2 + carry >= 10) return true;
+                carry = Math.floor((digit1 + digit2 + carry) / 10);
+                n1 = Math.floor(n1 / 10);
+                n2 = Math.floor(n2 / 10);
+            }
+            return false;
+        }
+
+        function cekAdaPinjaman(n1, n2) {
+            while(n2 > 0){
+                if(n1 % 10 < n2 % 10) return true;
+                n1 = Math.floor(n1 / 10);
+                n2 = Math.floor(n2 / 10);
+            }
+            return false;
+        }
+
+        function generateSheet() {
+            sheetContainer.innerHTML = '';
+            
+            const operasi = document.querySelector('input[name="operasi"]:checked').value;
+            const digit = parseInt(document.querySelector('input[name="digit"]:checked').value);
+            const tipe = document.querySelector('input[name="tipe"]:checked').value;
+            const jumlahKolom = parseInt(document.getElementById('inputKolom').value) || 5;
+            const jumlahBaris = parseInt(document.getElementById('inputBaris').value) || 5;
+            const jumlahSoal = jumlahKolom * jumlahBaris;
+            
+            const colClassMap = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4', 5: 'grid-cols-5', 6: 'grid-cols-6' };
+            sheetContainer.className = `grid ${colClassMap[jumlahKolom] || 'grid-cols-5'} gap-x-8 gap-y-10`;
+
+            const namaOperasi = operasi === 'penjumlahan' ? 'Penjumlahan' : 'Pengurangan';
+            const namaTipe = tipe === 'mudah' ? 'Tanpa Menyimpan/Meminjam' : 'Dengan Menyimpan/Meminjam';
+            judulSheet.textContent = `Latihan ${namaOperasi} - ${digit} Digit (${namaTipe})`;
+
+            for (let i = 0; i < jumlahSoal; i++) {
+                let soal;
+                if (operasi === 'penjumlahan') {
+                    soal = buatSoalPenjumlahan(digit, tipe);
+                } else {
+                    soal = buatSoalPengurangan(digit, tipe);
+                }
+                let operator = operasi === 'penjumlahan' ? '+' : '-';
+                const soalHTML = `
+                    <div class="soal-card text-right font-mono text-3xl">
+                        <div>${soal.angka1}</div>
+                        <div>${operator} ${soal.angka2.toString().padStart(digit, ' ')}</div>
+                        <hr class="border-t-2 border-black my-2">
+                        <div class="h-10 text-gray-400">.....</div>
+                    </div>
+                `;
+                sheetContainer.innerHTML += soalHTML;
+            }
+        }
+
+        tombolBaru.addEventListener('click', generateSheet);
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('change', generateSheet);
+        });
+
+        window.onload = generateSheet;
+    </script>
+</body>
+</html>
