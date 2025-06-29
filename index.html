@@ -36,16 +36,15 @@
 
         /* Gaya kartu dashboard yang lebih ceria */
         .dashboard-card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            border-bottom-width: 4px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .dashboard-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
 
     <!-- ===== SPLASH SCREEN DENGAN ANIMASI LOTTIE ===== -->
     <div id="splash-screen">
@@ -57,47 +56,37 @@
 
     <!-- ===== KONTEN UTAMA (DASHBOARD) ===== -->
     <div id="main-content" class="hidden">
-        <header class="bg-blue-500 shadow-lg">
-            <div class="max-w-4xl mx-auto py-4 px-5 text-center">
-                <h1 class="text-3xl font-extrabold text-white">Menu Belajar</h1>
+        <header class="bg-gradient-to-r from-blue-500 to-teal-400 shadow-lg">
+            <div class="max-w-4xl mx-auto py-5 px-5 text-center">
+                <h1 class="text-4xl font-extrabold text-white tracking-wide">Menu Belajar</h1>
             </div>
         </header>
 
         <main class="max-w-4xl mx-auto p-5">
-            <!-- [DIUBAH] Grid untuk kartu-kartu link belajar -->
-            <div class="grid grid-cols-3 gap-4">
+            <!-- [DIUBAH] Grid dibuat responsif dengan 1 kolom di mobile dan 3 di desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <!-- 
-                  PENTING: Pastikan Anda memiliki file `membaca.png` 
-                  di dalam folder `image` 
-                -->
-                <a href=" https://supri4dhy.github.io/hitung/" class="dashboard-card block bg-white p-4 rounded-2xl shadow-md border-blue-400">
-                    <div class="text-center">
-                        <img src="image/berhitung.png" alt="Ikon Membaca" class="w-20 h-20 mx-auto">
-                        <p class="mt-2 font-bold text-gray-700">Berhitung</p>
+                <!-- Kartu 1: Belajar Berhitung -->
+                <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-blue-400 to-blue-500 text-white p-6 rounded-3xl shadow-lg">
+                    <div class="flex flex-col items-center justify-center h-full text-center">
+                        <img src="image/berhitung.png" alt="Ikon Belajar Berhitung" class="w-32 h-32 mb-4 drop-shadow-lg">
+                        <p class="text-xl font-extrabold">Belajar Berhitung<br>Tambah & Kurang</p>
                     </div>
                 </a>
 
-                <!-- 
-                  [DIUBAH] Menggunakan gambar baru.
-                  PENTING: Pastikan Anda memiliki file `hitungcepat.png` 
-                  di dalam folder `image` 
-                -->
-                <a href="https://supri4dhy.github.io/belajar-hitung/" class="dashboard-card block bg-white p-4 rounded-2xl shadow-md border-green-400">
-                    <div class="text-center">
-                         <img src="image/berhitung2.png" alt="Ikon Hitung Cepat" class="w-20 h-20 mx-auto">
-                        <p class="mt-2 font-bold text-gray-700">Berhitung Penjumlah/Pengurangan</p>
+                <!-- Kartu 2: Hitung Bersusun -->
+                <a href="https://supri4dhy.github.io/hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-green-400 to-green-500 text-white p-6 rounded-3xl shadow-lg">
+                    <div class="flex flex-col items-center justify-center h-full text-center">
+                        <img src="image/berhitung2.png" alt="Ikon Hitung Bersusun" class="w-32 h-32 mb-4 drop-shadow-lg">
+                        <p class="text-xl font-extrabold">Hitung<br>Bersusun</p>
                     </div>
                 </a>
 
-                <!-- 
-                  PENTING: Pastikan Anda memiliki file `video.png` 
-                  di dalam folder `image` 
-                -->
-                <a href="https://supri4dhy.github.io/hitung-cepat/" class="dashboard-card block bg-white p-4 rounded-2xl shadow-md border-red-400">
-                    <div class="text-center">
-                        <img src="image/hitungcepat.png" alt="Ikon Video" class="w-20 h-20 mx-auto">
-                        <p class="mt-2 font-bold text-gray-700">Flash Tambah/Kurang</p>
+                <!-- Kartu 3: Hitung Cepat -->
+                <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank" class="dashboard-card block bg-gradient-to-br from-red-400 to-red-500 text-white p-6 rounded-3xl shadow-lg">
+                    <div class="flex flex-col items-center justify-center h-full text-center">
+                        <img src="image/hitungcepat.png" alt="Ikon Hitung Cepat" class="w-32 h-32 mb-4 drop-shadow-lg">
+                        <p class="text-xl font-extrabold">Hitung Cepat</p>
                     </div>
                 </a>
 
