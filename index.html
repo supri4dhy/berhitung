@@ -63,31 +63,42 @@
         </header>
 
         <main class="max-w-4xl mx-auto p-5 space-y-6">
-    <!-- Loop setiap kartu -->
-    <!-- GUNAKAN `flex-row` dan `flex-row-reverse` SECARA BERGANTIAN -->
-    <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank"
-       class="flex flex-col md:flex-row items-center justify-between bg-blue-400 text-white rounded-3xl p-4 shadow-lg">
-        <img src="image/berhitung.png" alt="Belajar Berhitung" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:mr-6">
-        <p class="text-center text-xl font-bold w-full">Belajar Berhitung Tambah & Kurang</p>
-    </a>
 
-    <a href="https://supri4dhy.github.io/hitung/" target="_blank"
-       class="flex flex-col md:flex-row-reverse items-center justify-between bg-green-400 text-white rounded-3xl p-4 shadow-lg">
-        <img src="image/berhitung2.png" alt="Hitung Bersusun" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:ml-6">
-        <p class="text-center text-xl font-bold w-full">Hitung Bersusun</p>
-    </a>
+            <!-- Kartu 1: Gambar kiri -->
+            <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank"
+               class="dashboard-card block bg-blue-400 text-white p-4 rounded-3xl shadow-lg">
+                <div class="flex flex-row items-center gap-4">
+                    <img src="image/berhitung.png" alt="Belajar Berhitung" class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                    <p class="text-lg sm:text-xl font-bold text-center w-full">Belajar Berhitung Tambah & Kurang</p>
+                </div>
+            </a>
+        
+            <!-- Kartu 2: Gambar kanan -->
+            <a href="https://supri4dhy.github.io/hitung/" target="_blank"
+               class="dashboard-card block bg-green-400 text-white p-4 rounded-3xl shadow-lg">
+                <div class="flex flex-row-reverse items-center gap-4">
+                    <img src="image/berhitung2.png" alt="Hitung Bersusun" class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                    <p class="text-lg sm:text-xl font-bold text-center w-full">Hitung Bersusun</p>
+                </div>
+            </a>
+        
+            <!-- Kartu 3: Gambar kiri lagi -->
+            <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank"
+               class="dashboard-card block bg-red-400 text-white p-4 rounded-3xl shadow-lg">
+                <div class="flex flex-row items-center gap-4">
+                    <img src="image/hitungcepat.png" alt="Hitung Cepat" class="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
+                    <p class="text-lg sm:text-xl font-bold text-center w-full">Hitung Cepat</p>
+                </div>
+            </a>
+        
+            <!-- Kartu 4: Tanpa gambar -->
+            <a href="https://supri4dhy.github.io/generate-tambahan/" target="_blank"
+               class="dashboard-card block bg-pink-500 text-white p-4 rounded-3xl shadow-lg text-center">
+                <p class="text-lg sm:text-xl font-bold">Generate Soal</p>
+            </a>
+        
+        </main>
 
-    <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank"
-       class="flex flex-col md:flex-row items-center justify-between bg-red-400 text-white rounded-3xl p-4 shadow-lg">
-        <img src="image/hitungcepat.png" alt="Hitung Cepat" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:mr-6">
-        <p class="text-center text-xl font-bold w-full">Hitung Cepat</p>
-    </a>
-
-    <a href="https://supri4dhy.github.io/generate-tambahan/" target="_blank"
-       class="bg-pink-500 text-white rounded-3xl p-4 shadow-lg text-center text-xl font-bold">
-        Generate Soal
-    </a>
-</main>
     </div>
 
     <script>
