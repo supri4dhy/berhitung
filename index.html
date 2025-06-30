@@ -62,56 +62,32 @@
             </div>
         </header>
 
-        <main class="max-w-4xl mx-auto p-5">
-            <!-- [DIUBAH] Grid dibuat responsif dengan 1 kolom di mobile dan 3 di desktop -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <main class="max-w-4xl mx-auto p-5 space-y-6">
+    <!-- Loop setiap kartu -->
+    <!-- GUNAKAN `flex-row` dan `flex-row-reverse` SECARA BERGANTIAN -->
+    <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank"
+       class="flex flex-col md:flex-row items-center justify-between bg-blue-400 text-white rounded-3xl p-4 shadow-lg">
+        <img src="image/berhitung.png" alt="Belajar Berhitung" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:mr-6">
+        <p class="text-center text-xl font-bold w-full">Belajar Berhitung Tambah & Kurang</p>
+    </a>
 
-                <!-- Kartu 1: Belajar Berhitung -->
-                <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 rounded-3xl shadow-lg">
-                    <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                        <a href="https://supri4dhy.github.io/belajar-hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 rounded-3xl shadow-lg">
-                            <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                                <img src="image/berhitung.png" alt="Ikon Belajar Berhitung" class="w-24 h-24 md:w-32 md:h-32 drop-shadow-lg">
-                                <p class="text-lg md:text-xl font-extrabold">Belajar Berhitung Tambah & Kurang</p>
-                            </div>
-                        </a>
-                    </div>
-                </a>
+    <a href="https://supri4dhy.github.io/hitung/" target="_blank"
+       class="flex flex-col md:flex-row-reverse items-center justify-between bg-green-400 text-white rounded-3xl p-4 shadow-lg">
+        <img src="image/berhitung2.png" alt="Hitung Bersusun" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:ml-6">
+        <p class="text-center text-xl font-bold w-full">Hitung Bersusun</p>
+    </a>
 
-                <!-- Kartu 2: Hitung Bersusun -->
-                <a href="https://supri4dhy.github.io/hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-green-400 to-green-500 text-white p-3 rounded-3xl shadow-lg">
-                    <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                        <a href="https://supri4dhy.github.io/hitung/" target="_blank" class="dashboard-card block bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 rounded-3xl shadow-lg">
-                            <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                                <img src="image/berhitung2.png" alt="Ikon Hitung Bersusun" class="w-24 h-24 md:w-32 md:h-32 drop-shadow-lg">
-                                <p class="text-lg md:text-xl font-extrabold">Hitung Bersusun</p>
-                            </div>
-                        </a>
-                    </div>
-                </a>
+    <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank"
+       class="flex flex-col md:flex-row items-center justify-between bg-red-400 text-white rounded-3xl p-4 shadow-lg">
+        <img src="image/hitungcepat.png" alt="Hitung Cepat" class="w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-0 md:mr-6">
+        <p class="text-center text-xl font-bold w-full">Hitung Cepat</p>
+    </a>
 
-                <!-- Kartu 3: Hitung Cepat -->
-                <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank" class="dashboard-card block bg-gradient-to-br from-red-400 to-red-500 text-white p-3 rounded-3xl shadow-lg">
-                    <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                        <a href="https://supri4dhy.github.io/hitung-cepat/" target="_blank" class="dashboard-card block bg-gradient-to-br from-blue-400 to-blue-500 text-white p-3 rounded-3xl shadow-lg">
-                            <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-                                <img src="image/hitungcepat.png" alt="Ikon Hitung Cepat" class="w-24 h-24 md:w-32 md:h-32 drop-shadow-lg">
-                                <p class="text-lg md:text-xl font-extrabold">Hitung Cepat</p>
-                            </div>
-                        </a>
-                    </div>
-                </a>
-
-                <!-- Kartu 5: Hitung Cepat -->
-                <a href="https://supri4dhy.github.io/generate-tambahan/" target="_blank" class="dashboard-card block bg-gradient-to-br from-red-400 to-red-500 text-white p-6 rounded-3xl shadow-lg">
-                    <div class="flex flex-row md:flex-col items-center justify-center h-full text-left md:text-center gap-4">
-
-                        <p class="text-xl font-extrabold">Generate Soal</p>
-                    </div>
-                </a>
-                
-            </div>
-        </main>
+    <a href="https://supri4dhy.github.io/generate-tambahan/" target="_blank"
+       class="bg-pink-500 text-white rounded-3xl p-4 shadow-lg text-center text-xl font-bold">
+        Generate Soal
+    </a>
+</main>
     </div>
 
     <script>
